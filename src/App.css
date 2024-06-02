@@ -1,77 +1,761 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.App {
-  text-align: center;
-}
+@import url('https://use.typekit.net/okk1qzx.css');
 
 .navbar {
-  background-color: #ff0042;
-  padding: 5px 20px;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-left {
+  background-color: transparent; 
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
   display: flex;
   align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease; 
 }
 
-.navbar-right {
-  display: flex;
-  align-items: center;
-  margin-right: 30px;
-}
-
-.navbar-left button,
-.navbar-right button {
+.toggle-btn {
+  font-size: 50px;
   color: white;
-  background-color: transparent;
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
+.toggle-btn, .logo {
+  color: #ff0042; 
+  transition: color 0.3s ease; 
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
+.navbar.open .toggle-btn,
+.navbar.open .logo {
+  color: white; 
+}
+
+.toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-btn:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.logo {
+  height: 30px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; 
+  height: 100%;
   background-color: #ff0042;
-  min-width: 160px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 999;
+  padding-bottom: 50px;
+  transition: left 0.3s ease;
 }
 
-.dropdown-content button {
+.sidebar-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  margin-top: 70px;
+}
+
+.sidebar-button:hover {
+  background-color: white; 
+  color: #ff0042; 
+}
+
+.sidebar-button:hover::before {
+  background-color: #ff0042; 
+}
+
+.sidebar-content button, .logout-btn {
   color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  background-color: #ff0042;
+  background: none;
   border: none;
   text-align: left;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  position: relative; 
+  overflow: hidden; 
 }
 
-.dropdown-content button:hover {
-  background-color: #e60038;
+.sidebar-content button::before, .logout-btn::before {
+  content: '';
+  position: absolute;
+  left: 2.5%; 
+  top: 0;
+  height: 100%;
+  width: 95%; 
+  background-color: white;
+  border-radius: 10px; 
+  z-index: -1; 
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
 }
 
-.dropdown:hover .dropdown-content {
+.sidebar-content button:hover::before, .logout-btn:hover::before {
+  opacity: 1; 
+}
+
+.sidebar-content button:hover, .logout-btn:hover {
+  color: #ff0042; 
+}
+
+.logout-btn:hover .logout-icon {
+  color: white;
+  background-color: #ff0042; 
+}
+
+.logout-icon {
+  color: #ff0042; 
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: white; 
+  padding: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: background-color 0.3s; 
+}
+
+.icon-my-account {
+  margin-right: 8px;
+  vertical-align: middle; 
+}
+
+.sidebar-content button:hover .icon-my-account {
+  color: #ff0042; 
+}
+
+.sidebar:not(.open) {
+  left: -300px; 
+}
+
+.sidebar button {
   display: block;
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  background: transparent;
+}
+
+.content {
+  margin-top: 60px;
+  transition: margin-left 0.3s ease; 
+}
+
+.content.sidebar-closed {
+  margin-left: 80px; 
+}
+
+.content.sidebar-open {
+  margin-left: 320px; 
+}
+
+/*ProceduralTrainer*/
+
+.procedural-trainer-header {
+  text-align: left;
+  font-family: "myriad-pro", sans-serif;
+  color: #333;
+  top: 30px;
+  left: 0;
+  width: 80%;
+  z-index: 100;
+  padding: 20px 0; 
+}
+
+.procedural-trainer-header span {
+  font-size: 16px;
+  margin-right: 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.procedural-trainer-header h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.procedures-container {
+  display: flex;
+  overflow-x: auto;  
+  scrollbar-width: thin;  
+  scrollbar-color: darkgrey #f1f1f1;  
+  font-family: "myriad-pro", sans-serif;
+  white-space: nowrap;  
+  padding: 20px 0;  
+  gap: 20px;  
+  width: 100%; 
+}
+
+.procedure {
+  position: relative; 
+  flex-shrink: 0;  
+  width: 306px;  
+  height: 419px;  
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px;  
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.procedure h2 {
+  text-align: center;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  font-style: normal;
+  margin-top: 220px;
+  width: 100%;
+
+}
+
+.sub-heading {
+  position: absolute;
+  bottom: 82px; 
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.progress {
+  z-index: 10;
+  color: white; 
+  font-family: "myriad-pro", sans-serif; 
+  font-size: 60px; 
+  font-weight: 700; 
+  position: absolute; 
+  top: 10px; 
+  right: 20px; 
+  margin: 0; 
+  display: block;
+}
+
+.procedure:hover {
+  transform: translateY(-10px);
+  transition: 0.3s;
+}
+
+.procedures-container::-webkit-scrollbar {
+  height: 10px;  
+}
+
+.procedures-container::-webkit-scrollbar-track {
+  background: #f1f1f1;  
+}
+
+.procedures-container::-webkit-scrollbar-thumb {
+  background-color: darkgrey; 
+  border-radius: 10px;  
+  border: 2px solid #f1f1f1;  
+}
+
+.procedures-container::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0; 
+}
+
+.icons {
+  position: relative;
+  bottom: 30px;
+  right: 10px;
+  font-size: 24px; 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px; 
+}
+
+.stara {
+  color: black; 
+  cursor: pointer;
+  background: white; 
+  border-radius: 50%; 
+  padding: 10px;
+  margin-left: 2px; 
+
+}
+
+.starreda {
+  color: gold; 
+  background: white; 
+  border-radius: 50%; 
+}
+
+.cursor {
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.recent-procedures-header {
+  text-align: left;
+  font-family: "myriad-pro", sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: #333;
+}
+
+.recent-procedures-container {
+  display: flex;
+  flex-direction: row; 
+  overflow-x: auto; 
+  padding: 20px 0;
+  gap: 20px;
+  align-items: center; 
+  white-space: nowrap; 
+}
+
+.recent-procedure {
+  width: 211.5px;
+  height: 228.5px;
+  background-size: cover;
+  border-radius: 30px;
+  flex-shrink: 0; 
+  margin-right: 20px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+/* * { outline: 1px solid red; } */
+
+
+.procedure-title {
+  color: white;
+  text-align: center;
+  font-family: "myriad-pro", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}
+
+.flight{
+  position: relative;
+  bottom: 15px; 
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-family: "myriad-pro", sans-serif;
+  font-size: 18px;
+  font-weight: 400;;
+  display: flex;
+  justify-content: center;
+}
+
+.procedure-stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin-top:  110px; 
+  padding-bottom: 10px;
+}
+
+.starone {
+  color: transparent; 
+  stroke: white; 
+  stroke-width: 30px; 
+  margin: 0 2px;
+  width: 30px; 
+  height: 30px; 
+  font-size: 24px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.starfilled {
+  color: white; 
+  stroke: none; 
+  margin: 0 2px;
+  width: 30px; 
+  height: 30px; 
+  font-size: 24px; 
+}
+
+/* Procedures */
+
+.secondcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute; 
+  left: 280px;
+  top: 0;
+  padding: 20px;
+  padding-bottom: 100px;
+}
+
+.secondwrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.progress-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+}
+
+.progress-circle {
+  position: absolute;
+  top: 110px;
+  left: 45px;
+}
+
+.secondbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  border-radius: 50%; 
+  width: 150px;
+  height: 150px; 
+  margin-bottom: 10px; 
+  border: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 10px rgba(128, 128, 128, 0.6); 
+  transition: left 0.3s ease;
+}
+
+.secondbutton.button-1 {
+  background-color: #ff0042;
+  margin-top: 90px;
+  margin-left: 30px;
+  box-shadow: 0px 10px rgb(124, 1, 1);  
+}
+
+.secondbutton.button-2,
+.secondbutton.button-3,
+.secondbutton.button-4,
+.secondbutton.button-5,
+.secondbutton.button-6 {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
+
+.secondbutton.button-2 {
+  margin-left: 350px;
+}
+
+.secondbutton.button-3 {
+  margin-left: 30px;
+}
+
+.secondbutton.button-4 {
+  margin-left: 350px;
+}
+
+.secondbutton.button-5 {
+  margin-left: 30px;
+}
+
+.secondbutton.button-6 {
+  margin-left: 350px;
+}
+
+.lock-icon {
+  color: darkgrey;
+  font-size: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.starsb {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Adjusted margin to position the stars below the title */
+}
+
+.starb {
+  color: #ccc; 
+  width: 20px; 
+  height: 20px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  background-color: transparent;
+  margin: 0 2px; /* Increased margin for better spacing */
+}
+
+.starb.filledb {
+  color: red; 
+  stroke: none; 
+  width: 30px; 
+  height: 30px;
+  margin: 0 2px; /* Increased margin for better spacing */
+}
+
+.starb.unfilledb {
+  color: #ccc; 
+  stroke: none; 
+  width: 30px; 
+  height: 30px; 
+  margin: 0 2px; /* Increased margin for better spacing */
+}
+
+.title.title-1 {
+  text-align: center;
+  margin-left: 60px;
+  margin-top: 5px;
+  color: black;
+  position: relative;
+}
+
+.starsb.starsb-1 {
+  margin-left: 60px;
+  margin-top: 85px; 
+}
+
+.title.title-3 {
+  text-align: center;
+  margin-left: 60px;
+  margin-top: 5px;
+  color: #666;
+}
+
+.starsb.starsb-3 {
+  margin-left: 60px;
+  margin-top: -20px;
+}
+
+.title.title-5 {
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 60px;
+  color: #666;
+}
+
+.starsb.starsb-5 {
+  margin-left: 60px;
+  margin-top: -20px;
+}
+
+.title.title-6 {
+  text-align: center;
+  margin-top: 270px; 
+  margin-left: 700px;
+  color: #666;
+  position: absolute;
+}
+
+.starsb.starsb-6 {
+  margin-left: 700px;
+  margin-top: 230px;
+  position: absolute;
+}
+
+.title.title-4 {
+  text-align: center;
+  margin-top: 270px; 
+  margin-left: 700px;
+  color: #666;
+  position: absolute;
+}
+
+.starsb.starsb-4 {
+  margin-left: 700px;
+  margin-top: 230px;
+  position: absolute;
+}
+
+.title.title-2 {
+  text-align: center;
+  margin-top: 270px; 
+  margin-left: 700px;
+  color: #666;
+  position: absolute;
+}
+
+.starsb.starsb-2 {
+  margin-left: 700px;
+  margin-top: 230px;
+  position: absolute;
+}
+
+.title-line.thick {
+  font-family: "myriad-pro", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.title-line.thin {
+  font-family: "myriad-pro", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.starsb-and-percentageb {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: -25px;
+  margin-top: 10px;
+}
+
+.percentage {
+  font-size: 30px;
+  font-family: "myriad-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 10px;
+}
+
+.modal {
+  position: fixed;
+  top: 50px;
+  right: 100px;
+  width: 35%;
+  height: 800px;
+  background-color: #ffffff(255, 255, 255, 0.95);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+}
+
+.modal-content {
+  padding: 20px;
+  width: 100%;
+  max-width: 90%;
+}
+
+.modal h1 {
+  font-family: "myriad-pro", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 50px;
+}
+
+.modal-content p {
+  font-family: "myriad-pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.start-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  width: auto;
+  display: block;
+  margin: 310px auto;
+  width: 180px;
+}
+
+/* Media query for screens less than 1366px wide */
+@media (max-width: 1500px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .sidebar:not(.open) {
+    left: -250px; 
+  }
+
+  .content.sidebar-open {
+    margin-left: 270px; 
+  }
+
+  .procedure {
+    width: 250px;
+    height: 350px; 
+  }
+
+  .procedure h2 {
+    font-size: 24px; 
+  }
+
+  .sub-heading {
+    bottom: 70px; 
+    font-size: 16px; 
+  }
+
+  .progress {
+    font-size: 50px; 
+  }
+
+  .icons {
+    font-size: 20px; 
+  }
+
+  .stara, .starreda, .cursor {
+    padding: 8px;
+    margin-right: 15px;
+    font-size: 20px; 
+  }
+
+  .starone, .starfilled {
+    width: 25px;
+    height: 25px;
+    font-size: 20px; 
+  }
+
+  .secondbutton {
+    width: 120px;
+    height: 120px; 
+  }
+
+  .secondbutton.button-1 {
+    margin-top: 80px; 
+  }
+
+  .title-line.thick, .title-line.thin {
+    font-size: 18px;
+  }
+
+  .percentage {
+    font-size: 25px; 
+  }
+
+  .start-button {
+    font-size: 25px;
+    padding: 8px 16px;
+    width: 150px;
+  }
 }
