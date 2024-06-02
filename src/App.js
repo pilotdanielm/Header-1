@@ -149,28 +149,31 @@ const EmergencyProcedure = () => {
         <div key={procedure.id} className="secondwrapper">
           <div className="progress-container">
             {procedure.id === 1 && (
-              <svg className="progress-circle" width="220" height="220">
-                <circle
-                  cx="110"
-                  cy="110"
-                  r="100"
-                  stroke="#e6e6e6"
-                  strokeWidth="10"
-                  fill="none"
-                />
-                <circle
-                  cx="110"
-                  cy="110"
-                  r="100"
-                  stroke="#ff0042"
-                  strokeWidth="10"
-                  strokeDasharray="628.32" /* 2 * Math.PI * 100 */
-                  strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
-                  strokeLinecap="round"
-                  fill="none"
-                  transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
-                />
-              </svg>
+              <>
+                <div className="start-box">Start</div>
+                <svg className="progress-circle" width="220" height="220">
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    stroke="#e6e6e6"
+                    strokeWidth="10"
+                    fill="none"
+                  />
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    stroke="#ff0042"
+                    strokeWidth="10"
+                    strokeDasharray="628.32" /* 2 * Math.PI * 100 */
+                    strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
+                    strokeLinecap="round"
+                    fill="none"
+                    transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
+                  />
+                </svg>
+              </>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
@@ -209,7 +212,6 @@ const EmergencyProcedure = () => {
     </div>
   );
 };
-
 
 //Pre Flight Component
 
