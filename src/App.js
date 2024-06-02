@@ -17,8 +17,8 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
   const formattedDate = today.toLocaleDateString('en-US', options);
 
   const [procedures, setProcedures] = useState([
-    { id: 1, title: "Emergency Procedures", progress: 50, image: emergencyProcedureImage, isStarred: false },
-    { id: 2, title: "Pre-Flight Procedures", progress: 0, image: preFlightProcedureImage, isStarred: false },
+    { id: 1, title: "Emergency\n Procedures", progress: 50, image: emergencyProcedureImage, isStarred: false },
+    { id: 2, title: "Pre-Flight\n Procedures", progress: 0, image: preFlightProcedureImage, isStarred: false },
     { id: 3, title: "CFI", progress: 25, image: CFIImage, isStarred: false },
     ...Array.from({ length: 17 }, (_, i) => ({
       id: i + 4,
@@ -97,7 +97,7 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
                 <FaStar key={i} className={i < proc.stars ? 'starfilled' : 'starone'} />
               ))}
             </div>                        
-            <div className="procedure-title">{proc.title}</div>
+            <div className="proceduretitle">{proc.title}</div>
             <div><p className='flight'>During Flight</p></div>
           </div>
         ))}
