@@ -108,7 +108,6 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
 
 // EmergencyProcedure Component
 
-
 const EmergencyProcedure = () => {
   const [activeProcedure, setActiveProcedure] = useState({
     id: 1,
@@ -215,7 +214,7 @@ const EmergencyProcedure = () => {
 
 //Pre Flight Component
 
-const PreFlightProcedure = () => {
+const PreFlightProcedure  = () => {
   const [activeProcedure, setActiveProcedure] = useState({
     id: 1,
     title: "Procedure\nPlaceholder",
@@ -255,28 +254,31 @@ const PreFlightProcedure = () => {
         <div key={procedure.id} className="secondwrapper">
           <div className="progress-container">
             {procedure.id === 1 && (
-              <svg className="progress-circle" width="220" height="220">
-              <circle
-                cx="110"
-                cy="110"
-                r="100"
-                stroke="#e6e6e6"
-                strokeWidth="10"
-                fill="none"
-              />
-              <circle
-                cx="110"
-                cy="110"
-                r="100"
-                stroke="#e6e6e6"
-                strokeWidth="10"
-                strokeDasharray="628.32" /* 2 * Math.PI * 100 */
-                strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
-                strokeLinecap="round"
-                fill="none"
-                transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
-              />
-            </svg>
+              <>
+                <div className="start-box">Start</div>
+                <svg className="progress-circle" width="220" height="220">
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    stroke="#e6e6e6"
+                    strokeWidth="10"
+                    fill="none"
+                  />
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    stroke="#e6e6e6"
+                    strokeWidth="10"
+                    strokeDasharray="628.32" /* 2 * Math.PI * 100 */
+                    strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
+                    strokeLinecap="round"
+                    fill="none"
+                    transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
+                  />
+                </svg>
+              </>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
@@ -319,7 +321,7 @@ const PreFlightProcedure = () => {
 
 //CFI Component
 
-const CFI = () => {
+const CFI  = () => {
   const [activeProcedure, setActiveProcedure] = useState({
     id: 1,
     title: "Procedure\nPlaceholder",
@@ -359,28 +361,31 @@ const CFI = () => {
         <div key={procedure.id} className="secondwrapper">
           <div className="progress-container">
             {procedure.id === 1 && (
-            <svg className="progress-circle" width="220" height="220">
-            <circle
-              cx="110"
-              cy="110"
-              r="100"
-              stroke="#e6e6e6"
-              strokeWidth="10"
-              fill="none"
-            />
-            <circle
-              cx="110"
-              cy="110"
-              r="100"
-              stroke="#ff0042"
-              strokeWidth="10"
-              strokeDasharray="628.32" // 2 * Math.PI * 100
-              strokeDashoffset="471.24" // 628.32 * 0.75 (75% remaining, 25% progress)
-              strokeLinecap="round"
-              fill="none"
-              transform="rotate(-90 110 110)" // Rotate the circle to start from the top
-            />
-          </svg>
+              <>
+                <div className="start-box">Start</div>
+                <svg className="progress-circle" width="220" height="220">
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="100"
+                  stroke="#e6e6e6"
+                  strokeWidth="10"
+                  fill="none"
+                />
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="100"
+                  stroke="#ff0042"
+                  strokeWidth="10"
+                  strokeDasharray="628.32" // 2 * Math.PI * 100
+                  strokeDashoffset="471.24" // 628.32 * 0.75 (75% remaining, 25% progress)
+                  strokeLinecap="round"
+                  fill="none"
+                  transform="rotate(-90 110 110)" // Rotate the circle to start from the top
+                />
+              </svg>
+              </>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
@@ -391,7 +396,7 @@ const CFI = () => {
             </button>
           </div>
           <div className={`starsb starsb-${procedure.id}`}>
-          {Array.from({ length: 3 }).map((_, i) => (
+            {Array.from({ length: 3 }).map((_, i) => (
               <FaStar key={i} className={`starb ${procedure.id === 1 ? (i < 1 ? 'filledb' : 'unfilledb') : 'unfilledb'}`} />
             ))}
           </div>
@@ -406,7 +411,7 @@ const CFI = () => {
       <div className="modal">
         <div className="modal-content">
           <div className="starsb-and-percentageb">
-            <FaStar className="starb filledb" />
+          <FaStar className="starb filledb" />
             <FaStar className="starb unfilledb" />
             <FaStar className="starb unfilledb" />
             <span className="percentage">25%</span>
