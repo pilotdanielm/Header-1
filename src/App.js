@@ -143,34 +143,63 @@ const EmergencyProcedure = () => {
     }
   };
 
+  const renderDashedLine = (id) => {
+    let path = "";
+    switch (id) {
+      case 1:
+        path = "M190 130 C230 190, 280 190, 320 130";
+        break;
+      case 2:
+        path = "M150 400 Q200 300, 250 400";
+        break;
+      case 3:
+        path = "M150 650 Q200 550, 250 650";
+        break;
+      case 4:
+        path = "M150 900 Q200 800, 250 900";
+        break;
+      case 5:
+        path = "M150 1150 Q200 1050, 250 1150";
+        break;
+      default:
+        break;
+    }
+    return <path d={path} stroke="#ccc" strokeWidth="3" strokeDasharray="8,8" fill="none" />;
+  };
+
   return (
     <div className="secondcontainer">
+      <svg className="dashed-lines-svg">
+        {procedures.map((procedure) => (
+          renderDashedLine(procedure.id)
+        ))}
+      </svg>
       {procedures.map((procedure) => (
         <div key={procedure.id} className="secondwrapper">
           <div className="progress-container">
             {procedure.id === 1 && (
               <svg className="progress-circle" width="220" height="220">
-              <circle
-                cx="110"
-                cy="110"
-                r="100"
-                stroke="#e6e6e6"
-                strokeWidth="10"
-                fill="none"
-              />
-              <circle
-                cx="110"
-                cy="110"
-                r="100"
-                stroke="#ff0042"
-                strokeWidth="10"
-                strokeDasharray="628.32" /* 2 * Math.PI * 100 */
-                strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
-                strokeLinecap="round"
-                fill="none"
-                transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
-              />
-            </svg>
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="100"
+                  stroke="#e6e6e6"
+                  strokeWidth="10"
+                  fill="none"
+                />
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="100"
+                  stroke="#ff0042"
+                  strokeWidth="10"
+                  strokeDasharray="628.32" /* 2 * Math.PI * 100 */
+                  strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
+                  strokeLinecap="round"
+                  fill="none"
+                  transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
+                />
+              </svg>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}

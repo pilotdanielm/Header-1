@@ -409,15 +409,44 @@
 /* Procedures */
 
 .secondcontainer {
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   position: absolute; 
-  left: 280px;
+  left: 250px;
   top: 0;
   padding: 20px;
   padding-bottom: 100px;
+}
+
+.dashed-lines-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dashed-line-1 {
+  /* Customize styles for dashed line 1 */
+}
+
+.dashed-line-2 {
+  /* Customize styles for dashed line 2 */
+}
+
+.dashed-line-3 {
+  /* Customize styles for dashed line 3 */
+}
+
+.dashed-line-4 {
+  /* Customize styles for dashed line 4 */
+}
+
+.dashed-line-5 {
+  /* Customize styles for dashed line 5 */
 }
 
 .secondwrapper {
@@ -425,7 +454,6 @@
   flex-direction: column;
   align-items: center;
 }
-
 
 .progress-container {
   position: relative;
@@ -643,14 +671,15 @@
 }
 
 .modal {
+  display: block;
   position: fixed;
   top: 50px;
-  right: 100px;
-  width: 35%;
+  width: 600px;
   height: 800px;
-  background-color: #ffffff(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   border-radius: 30px;
+  left: 1000px;
 }
 
 .modal-content {
@@ -689,7 +718,7 @@
 }
 
 /* Media query for screens less than 1366px wide */
-@media (max-width: 1500px) {
+/* @media (max-width: 1500px) {
   .sidebar {
     width: 250px;
   }
@@ -758,4 +787,4 @@
     padding: 8px 16px;
     width: 150px;
   }
-}
+} */
