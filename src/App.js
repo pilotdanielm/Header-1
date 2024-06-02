@@ -143,37 +143,8 @@ const EmergencyProcedure = () => {
     }
   };
 
-  const renderDashedLine = (id) => {
-    let path = "";
-    switch (id) {
-      case 1:
-        path = "M190 130 C230 190, 280 190, 320 130";
-        break;
-      case 2:
-        path = "M150 400 Q200 300, 250 400";
-        break;
-      case 3:
-        path = "M150 650 Q200 550, 250 650";
-        break;
-      case 4:
-        path = "M150 900 Q200 800, 250 900";
-        break;
-      case 5:
-        path = "M150 1150 Q200 1050, 250 1150";
-        break;
-      default:
-        break;
-    }
-    return <path d={path} stroke="#ccc" strokeWidth="3" strokeDasharray="8,8" fill="none" />;
-  };
-
   return (
     <div className="secondcontainer">
-      <svg className="dashed-lines-svg">
-        {procedures.map((procedure) => (
-          renderDashedLine(procedure.id)
-        ))}
-      </svg>
       {procedures.map((procedure) => (
         <div key={procedure.id} className="secondwrapper">
           <div className="progress-container">

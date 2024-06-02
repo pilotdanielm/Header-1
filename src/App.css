@@ -420,35 +420,6 @@
   padding-bottom: 100px;
 }
 
-.dashed-lines-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.dashed-line-1 {
-  /* Customize styles for dashed line 1 */
-}
-
-.dashed-line-2 {
-  /* Customize styles for dashed line 2 */
-}
-
-.dashed-line-3 {
-  /* Customize styles for dashed line 3 */
-}
-
-.dashed-line-4 {
-  /* Customize styles for dashed line 4 */
-}
-
-.dashed-line-5 {
-  /* Customize styles for dashed line 5 */
-}
-
 .secondwrapper {
   display: flex;
   flex-direction: column;
