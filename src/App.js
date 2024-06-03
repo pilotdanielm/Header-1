@@ -55,12 +55,28 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
     }
   };
 
-  const titles = ["Engine Out", "Engine Fire"];
-  const [recentProcedures] = useState(Array.from({ length: 20 }, () => ({
-    title: titles[Math.floor(Math.random() * titles.length)],
-    stars: Math.floor(Math.random() * 4),  
-    image: square 
-  })));
+  const [recentProcedures] = useState([
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+    { title: "Engine Out", stars: 3, image: square },
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+    { title: "Engine Out", stars: 3, image: square },
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+    { title: "Engine Out", stars: 3, image: square },
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+    { title: "Engine Out", stars: 3, image: square },
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+    { title: "Engine Out", stars: 3, image: square },
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+    { title: "Engine Out", stars: 3, image: square },
+    { title: "Engine Out", stars: 1, image: square },
+    { title: "Engine Out", stars: 2, image: square },
+  ]);
 
   return (
     <div>
@@ -94,7 +110,8 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
       </div>
       <div className="recent-procedures-container">
         {recentProcedures.map((proc, index) => (
-          <div key={index} className="recent-procedure" style={{ backgroundImage: `url(${proc.image})` }}>
+          <div key={index} className="recent-procedure" style={{ backgroundImage: `url(${proc.image})` }}
+               onClick={() => handleProcedureSelect('Emergency Procedures')}>
             <div className="procedure-stars">
               {Array.from({ length: 3 }).map((_, i) => (
                 <FaStar key={i} className={i < proc.stars ? 'starfilled' : 'starone'} />
@@ -108,6 +125,7 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
     </div>
   );
 };
+
 
 // EmergencyProcedure Component
 
@@ -172,10 +190,63 @@ const EmergencyProcedure = () => {
                     strokeDashoffset="314.16" /* 628.32 * 0.5 (50% remaining, 50% progress) */
                     strokeLinecap="round"
                     fill="none"
-                    transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
+                    transform="rotate(-90 110 110)" 
+                  />
+                </svg>
+                <svg className="dashed-line" width="400" height="400">
+                  <path
+                    d="M 10 10 C 210 40, 300 130, 315 350" // Adjusted curve path for button 1
+                    stroke="#cccccc" // Line color
+                    strokeWidth="7" // Line width
+                    fill="none" // No fill for the path
+                    strokeDasharray="20,20" // Dashed pattern
                   />
                 </svg>
               </>
+            )}
+            {procedure.id === 3 && (
+              <svg className="dashed-line2" width="400" height="400">
+                <path
+                  d="M 10 10 C 210 40, 300 130, 325 350" // Adjusted curve path for button 3
+                  stroke="#cccccc" // Line color
+                  strokeWidth="7" // Line width
+                  fill="none" // No fill for the path
+                  strokeDasharray="20,20" // Dashed pattern
+                />
+              </svg>
+            )}
+            {procedure.id === 5 && (
+              <svg className="dashed-line5" width="400" height="400">
+                <path
+                  d="M 10 10 C 210 40, 300 130, 325 350" // Adjusted curve path for button 5
+                  stroke="#cccccc" // Line color
+                  strokeWidth="7" // Line width
+                  fill="none" // No fill for the path
+                  strokeDasharray="20,20" // Dashed pattern
+                />
+              </svg>
+            )}
+            {procedure.id === 2 && (
+              <svg className="dashed-line3" width="400" height="400">
+                <path
+                  d="M 10 390 C 30 190, 120 100, 340 100"
+                  stroke="#cccccc" // Different line color
+                  strokeWidth="7" // Line width
+                  fill="none" // No fill for the path
+                  strokeDasharray="20,20" // Dashed pattern
+                />
+              </svg>
+            )}
+            {procedure.id === 4 && (
+              <svg className="dashed-line4" width="400" height="400">
+                <path
+                  d="M 10 390 C 30 190, 120 100, 340 100"
+                  stroke="#cccccc" // Different line color
+                  strokeWidth="7" // Line width
+                  fill="none" // No fill for the path
+                  strokeDasharray="20,20" // Dashed pattern
+                />
+              </svg>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
@@ -214,6 +285,7 @@ const EmergencyProcedure = () => {
     </div>
   );
 };
+
 
 //Pre Flight Component
 
@@ -275,13 +347,66 @@ const PreFlightProcedure  = () => {
                     stroke="#e6e6e6"
                     strokeWidth="10"
                     strokeDasharray="628.32" /* 2 * Math.PI * 100 */
-                    strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
+                    strokeDashoffset="408.41" /* 628.32 * 0.65 (0% progress) */
                     strokeLinecap="round"
                     fill="none"
-                    transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
+                    transform="rotate(-90 110 110)" 
                   />
                 </svg>
-              </>
+                <svg className="dashed-line" width="400" height="400">
+                  <path
+                    d="M 10 10 C 210 40, 300 130, 315 350" // Adjusted curve path for button 1
+                    stroke="#cccccc" // Line color
+                    strokeWidth="7" // Line width
+                    fill="none" // No fill for the path
+                    strokeDasharray="20,20" // Dashed pattern
+                  />
+                </svg>
+                </>
+                  )}
+                  {procedure.id === 3 && (
+                    <svg className="dashed-line2" width="400" height="400">
+                      <path
+                        d="M 10 10 C 210 40, 300 130, 325 350" // Adjusted curve path for button 3
+                        stroke="#cccccc" // Line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                    </svg>
+                  )}
+                  {procedure.id === 5 && (
+                    <svg className="dashed-line5" width="400" height="400">
+                      <path
+                        d="M 10 10 C 210 40, 300 130, 325 350" // Adjusted curve path for button 5
+                        stroke="#cccccc" // Line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                    </svg>
+                  )}
+                  {procedure.id === 2 && (
+                    <svg className="dashed-line3" width="400" height="400">
+                      <path
+                        d="M 10 390 C 30 190, 120 100, 340 100"
+                        stroke="#cccccc" // Different line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                    </svg>
+                  )}
+                  {procedure.id === 4 && (
+                    <svg className="dashed-line4" width="400" height="400">
+                      <path
+                        d="M 10 390 C 30 190, 120 100, 340 100"
+                        stroke="#cccccc" // Different line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                </svg>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
@@ -385,10 +510,63 @@ const CFI  = () => {
                   strokeDashoffset="471.24" // 628.32 * 0.75 (75% remaining, 25% progress)
                   strokeLinecap="round"
                   fill="none"
-                  transform="rotate(-90 110 110)" // Rotate the circle to start from the top
+                  transform="rotate(-90 110 110)" 
                 />
               </svg>
-              </>
+              <svg className="dashed-line" width="400" height="400">
+                  <path
+                    d="M 10 10 C 210 40, 300 130, 315 350" // Adjusted curve path for button 1
+                    stroke="#cccccc" // Line color
+                    strokeWidth="7" // Line width
+                    fill="none" // No fill for the path
+                    strokeDasharray="20,20" // Dashed pattern
+                  />
+                </svg>
+                </>
+                  )}
+                  {procedure.id === 3 && (
+                    <svg className="dashed-line2" width="400" height="400">
+                      <path
+                        d="M 10 10 C 210 40, 300 130, 325 350" // Adjusted curve path for button 3
+                        stroke="#cccccc" // Line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                    </svg>
+                  )}
+                  {procedure.id === 5 && (
+                    <svg className="dashed-line5" width="400" height="400">
+                      <path
+                        d="M 10 10 C 210 40, 300 130, 325 350" // Adjusted curve path for button 5
+                        stroke="#cccccc" // Line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                    </svg>
+                  )}
+                  {procedure.id === 2 && (
+                    <svg className="dashed-line3" width="400" height="400">
+                      <path
+                        d="M 10 390 C 30 190, 120 100, 340 100"
+                        stroke="#cccccc" // Different line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                    </svg>
+                  )}
+                  {procedure.id === 4 && (
+                    <svg className="dashed-line4" width="400" height="400">
+                      <path
+                        d="M 10 390 C 30 190, 120 100, 340 100"
+                        stroke="#cccccc" // Different line color
+                        strokeWidth="7" // Line width
+                        fill="none" // No fill for the path
+                        strokeDasharray="20,20" // Dashed pattern
+                      />
+                </svg>
             )}
             <button
               className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}

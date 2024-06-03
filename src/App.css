@@ -2,14 +2,14 @@
 
 .navbar {
   background-color: transparent; 
-  padding: 10px 20px;
+  padding: 20px 20px;
   position: fixed;
   width: 100%;
   top: 0;
   display: flex;
   align-items: center;
   z-index: 1000;
-  transition: background-color 0.3s ease; 
+  height: 40px;
 }
 
 .toggle-btn {
@@ -190,7 +190,7 @@
   left: 0;
   width: 80%;
   z-index: 100;
-  padding: 20px 0; 
+  padding: 20px 0;
 }
 
 .procedural-trainer-header span {
@@ -430,15 +430,16 @@
   align-items: center;
   justify-content: flex-start;
   position: absolute; 
-  left: 15%;
+  left: 17%;
   top: 0;
   padding: 20px;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
+  padding-top: 20px;
 }
 
 .start-box {
   position: absolute;
-  top: 60px; /* Adjust this value as needed to position the box correctly */
+  top: 60px; 
   left: 60%;
   transform: translateX(-50%);
   background-color: #000;
@@ -455,7 +456,7 @@
 .start-box::after {
   content: '';
   position: absolute;
-  bottom: -50px; /* Position the triangle correctly below the box */
+  bottom: -50px; 
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -465,7 +466,6 @@
   border-top: 50px solid #000;
   z-index: 1; 
 }
-
 
 .secondwrapper {
   display: flex;
@@ -483,6 +483,47 @@
   position: absolute;
   top: 110px;
   left: 45px;
+  z-index: 1;
+}
+
+.dashed-line {
+  position: absolute;
+  top: 210px;
+  left: 160px;
+  border-radius: 15px;
+  /* z-index: 5; */
+}
+
+.dashed-line2 {
+  position: absolute;
+  top: 160px;
+  left: 150px;
+  border-radius: 15px;
+  /* z-index: 5; */
+}
+
+.dashed-line3 {
+  position: absolute;
+  top: 30px;
+  left: 140px;
+  border-radius: 15px;
+  /* z-index: 5; */
+}
+
+.dashed-line4 {
+  position: absolute;
+  top: 40px;
+  left: 140px;
+  border-radius: 15px;
+  /* z-index: 5; */
+}
+
+.dashed-line5 {
+  position: absolute;
+  top: 170px;
+  left: 150px;
+  border-radius: 15px;
+  /* z-index: 5; */
 }
 
 .secondbutton {
@@ -513,7 +554,7 @@
 
 .secondbutton.button-1:hover{
   transform: translate(-50%, -52%);
-  box-shadow: 0px 10px 3px rgb(124, 1, 1); 
+  box-shadow: 0px 10px 3px #7c0101; 
 }
 
 .secondbutton.button-2,
@@ -524,26 +565,31 @@
   background-color: #ccc;
   cursor: not-allowed;
   color: #666; 
+
 }
 
 .secondbutton.button-2 {
   margin-left: 350px;
 }
 
+.secondbutton.button-4{
+  margin-left: 350px;
+  margin-top: 20px;
+}
+
 .secondbutton.button-3 {
   margin-left: 30px;
+  margin-top: 50px;
 }
 
-.secondbutton.button-4 {
-  margin-left: 350px;
-}
-
-.secondbutton.button-5 {
+.secondbutton.button-5{
   margin-left: 30px;
+  margin-top: 60px;
 }
 
-.secondbutton.button-6 {
+.secondbutton.button-6{
   margin-left: 350px;
+  margin-top: 20px;
 }
 
 .lock-icon {
@@ -558,7 +604,7 @@
 .starsb {
   display: flex;
   justify-content: center;
-  margin-top: 10px; /* Adjusted margin to position the stars below the title */
+  margin-top: 10px; 
 }
 
 .starb {
@@ -569,7 +615,7 @@
   align-items: center; 
   justify-content: center;
   background-color: transparent;
-  margin: 0 2px; /* Increased margin for better spacing */
+  margin: 0 2px; 
 }
 
 .starb.filledb {
@@ -577,7 +623,7 @@
   stroke: none; 
   width: 30px; 
   height: 30px;
-  margin: 0 2px; /* Increased margin for better spacing */
+  margin: 0 2px; 
 }
 
 .starb.unfilledb {
@@ -585,7 +631,7 @@
   stroke: none; 
   width: 30px; 
   height: 30px; 
-  margin: 0 2px; /* Increased margin for better spacing */
+  margin: 0 2px; 
 }
 
 .title.title-1 {
@@ -612,37 +658,24 @@
   color: #666;
 }
 
+.title.title-5{
+  text-align: center;
+  margin-left: 60px;
+  margin-top: 5px;
+  color: #666;
+}
+
 .starsb.starsb-3 {
   margin-left: 60px;
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
-.title.title-5 {
-  text-align: center;
-  margin-top: 5px;
+.starsb.starsb-5{
   margin-left: 60px;
-  color: #666;
+  margin-top: 30px;
 }
 
-.starsb.starsb-5 {
-  margin-left: 60px;
-  margin-top: -20px;
-}
-
-.title.title-6 {
-  text-align: center;
-  margin-top: 270px; 
-  margin-left: 700px;
-  color: #666;
-  position: absolute;
-}
-
-.starsb.starsb-6 {
-  margin-left: 700px;
-  margin-top: 230px;
-  position: absolute;
-}
-
+.title.title-6,
 .title.title-4 {
   text-align: center;
   margin-top: 270px; 
@@ -651,35 +684,36 @@
   position: absolute;
 }
 
-.starsb.starsb-4 {
-  margin-left: 700px;
-  margin-top: 230px;
-  position: absolute;
-}
-
-.title.title-2 {
+.title.title-2{
   text-align: center;
-  margin-top: 270px; 
+  margin-top: 250px; 
   margin-left: 700px;
   color: #666;
   position: absolute;
 }
 
-.starsb.starsb-2 {
+.starsb.starsb-6,
+.starsb.starsb-4 {
   margin-left: 700px;
-  margin-top: 230px;
+  margin-top: 240px;
   position: absolute;
 }
 
+.starsb.starsb-2{
+  margin-left: 700px;
+  margin-top: 220px;
+  position: absolute;
+} 
+
 .title-line.thick {
   font-family: "myriad-pro", sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 700;
 }
 
 .title-line.thin {
   font-family: "myriad-pro", sans-serif;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 400;
 }
 
