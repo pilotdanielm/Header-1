@@ -89,6 +89,9 @@ const ProceduralTrainer = ({ handleProcedureSelect }) => {
           </div>
         ))}
       </div>
+      <div class="recent-procedures-header">
+        <span>Recent Procedures</span>
+      </div>
       <div className="recent-procedures-container">
         {recentProcedures.map((proc, index) => (
           <div key={index} className="recent-procedure" style={{ backgroundImage: `url(${proc.image})` }}>
@@ -166,7 +169,7 @@ const EmergencyProcedure = () => {
                     stroke="#ff0042"
                     strokeWidth="10"
                     strokeDasharray="628.32" /* 2 * Math.PI * 100 */
-                    strokeDashoffset="408.41" /* 628.32 * 0.65 (65% remaining, 35% progress) */
+                    strokeDashoffset="314.16" /* 628.32 * 0.5 (50% remaining, 50% progress) */
                     strokeLinecap="round"
                     fill="none"
                     transform="rotate(-90 110 110)" /* Rotate the circle to start from the top */
