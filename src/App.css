@@ -366,9 +366,6 @@
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
 }
 
-/* * { outline: 1px solid red; } */
-
-
 .proceduretitle {
   color: white;
   text-align: center;
@@ -423,6 +420,8 @@
 }
 
 /* Procedures */
+
+/* * { outline: 1px solid red; } */
 
 .secondcontainer {
   display: block;
@@ -488,42 +487,10 @@
 
 .dashed-line {
   position: absolute;
-  top: 210px;
-  left: 160px;
-  border-radius: 15px;
-  /* z-index: 5; */
-}
-
-.dashed-line2 {
-  position: absolute;
-  top: 160px;
-  left: 150px;
-  border-radius: 15px;
-  /* z-index: 5; */
-}
-
-.dashed-line3 {
-  position: absolute;
-  top: 30px;
+  top: 190px;
   left: 140px;
   border-radius: 15px;
-  /* z-index: 5; */
-}
-
-.dashed-line4 {
-  position: absolute;
-  top: 40px;
-  left: 140px;
-  border-radius: 15px;
-  /* z-index: 5; */
-}
-
-.dashed-line5 {
-  position: absolute;
-  top: 170px;
-  left: 150px;
-  border-radius: 15px;
-  /* z-index: 5; */
+  /* z-index: 1; */
 }
 
 .secondbutton {
@@ -536,20 +503,19 @@
   margin-bottom: 10px; 
   border: none;
   position: absolute;
-  left: 50%;
-  top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 10px rgba(128, 128, 128, 0.6); 
   transition: left 0.3s ease;
 }
 
 .secondbutton.button-1 {
+  top: 215px;
+  left: 155px;
   background-color: #ff0042;
-  margin-top: 90px;
-  margin-left: 30px;
   box-shadow: 0px 10px rgb(124, 1, 1); 
   cursor: pointer; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
 }
 
 .secondbutton.button-1:hover{
@@ -565,32 +531,21 @@
   background-color: #ccc;
   cursor: not-allowed;
   color: #666; 
-
 }
 
-.secondbutton.button-2 {
-  margin-left: 350px;
+.secondbutton.button-2,
+.secondbutton.button-4,
+.secondbutton.button-6 {
+  top: 215px;
+  left: 480px;
 }
 
-.secondbutton.button-4{
-  margin-left: 350px;
-  margin-top: 20px;
+.secondbutton.button-3,
+.secondbutton.button-5 {
+  top: 215px;
+  left: 155px;
 }
 
-.secondbutton.button-3 {
-  margin-left: 30px;
-  margin-top: 50px;
-}
-
-.secondbutton.button-5{
-  margin-left: 30px;
-  margin-top: 60px;
-}
-
-.secondbutton.button-6{
-  margin-left: 350px;
-  margin-top: 20px;
-}
 
 .lock-icon {
   color: darkgrey;
@@ -634,6 +589,10 @@
   margin: 0 2px; 
 }
 
+.title{
+  width: 150px;
+}
+
 .title.title-1 {
   text-align: center;
   margin-left: 60px;
@@ -642,68 +601,45 @@
   position: relative;
 }
 
-.title{
-  width: 150px;
-}
-
 .starsb.starsb-1 {
   margin-left: 60px;
   margin-top: 85px; 
+  position: relative;
 }
 
-.title.title-3 {
+.starsb.starsb-3,
+.starsb.starsb-5 {
+  margin-left: 60px;
+  margin-top: 60px;
+  position: relative;
+}
+
+.title.title-3,
+.title.title-5 {
   text-align: center;
   margin-left: 60px;
   margin-top: 5px;
   color: #666;
-}
-
-.title.title-5{
-  text-align: center;
-  margin-left: 60px;
-  margin-top: 5px;
-  color: #666;
-}
-
-.starsb.starsb-3 {
-  margin-left: 60px;
-  margin-top: 20px;
-}
-
-.starsb.starsb-5{
-  margin-left: 60px;
-  margin-top: 30px;
-}
-
-.title.title-6,
-.title.title-4 {
-  text-align: center;
-  margin-top: 270px; 
-  margin-left: 700px;
-  color: #666;
-  position: absolute;
-}
-
-.title.title-2{
-  text-align: center;
-  margin-top: 250px; 
-  margin-left: 700px;
-  color: #666;
-  position: absolute;
+  position: relative;
 }
 
 .starsb.starsb-6,
-.starsb.starsb-4 {
-  margin-left: 700px;
-  margin-top: 240px;
-  position: absolute;
+.starsb.starsb-4,
+.starsb.starsb-2 {
+  position: relative;
+  margin-top: 60px;
+  left: 350px;
 }
 
-.starsb.starsb-2{
-  margin-left: 700px;
-  margin-top: 220px;
-  position: absolute;
-} 
+.title.title-6,
+.title.title-4,
+.title.title-2 {
+  text-align: center;
+  color: #666;
+  position: relative;
+  margin-top: 5px;
+  left: 350px;
+}
 
 .title-line.thick {
   font-family: "myriad-pro", sans-serif;
@@ -785,6 +721,7 @@
   transform: translateY(-3px);
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Media query for screens less than 1366px wide */
 /* @media (max-width: 1500px) {
