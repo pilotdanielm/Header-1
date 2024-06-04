@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { FaSignOutAlt, FaUser } from 'react-icons/fa';
-import { ProceduralTrainer, EmergencyProcedure, PreFlightProcedure, CFI } from './App_Menu';
+import { ProceduralTrainer, EmergencyProcedure, PreFlightProcedure, CFI, ProcedureTrainerSection } from './App_Menu';
 import './App.css';
 import logoRed from './images/NAVI-Logo-red.png';
 import logoWhite from './images/NAVI-Logo.png';
@@ -40,6 +40,8 @@ const App = () => {
         return <CFI />;
       case 'signout':
         return <div>Signed Out Content</div>;
+      case 'ProcedureTrainerSection': // Add this case
+        return <ProcedureTrainerSection />;
       default:
         return <ProceduralTrainer handleProcedureSelect={handleProcedureSelect} />;
     }

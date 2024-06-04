@@ -485,6 +485,17 @@
   z-index: 1;
 }
 
+.progress1-circle1{
+  position: absolute;
+  top: 110px;
+  left: 370px;
+  z-index: 1;
+}
+
+.locked .progress1-circle1 {
+  display: none; 
+}
+
 .dashed-line {
   position: absolute;
   top: 190px;
@@ -508,9 +519,7 @@
   transition: left 0.3s ease;
 }
 
-.secondbutton.button-1 {
-  top: 215px;
-  left: 155px;
+.secondbutton.button-1{
   background-color: #ff0042;
   box-shadow: 0px 10px rgb(124, 1, 1); 
   cursor: pointer; 
@@ -518,19 +527,34 @@
   z-index: 2;
 }
 
+.secondbutton.highlighted {
+  background-color: #ff0042;
+  box-shadow: 0px 10px rgb(124, 1, 1); 
+  cursor: pointer; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.secondbutton.highlighted:hover {
+  transform: translate(-50%, -52%);
+  box-shadow: 0px 10px 3px #7c0101; 
+}
+
+.locked {
+  cursor: not-allowed; 
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666; 
+}
+
 .secondbutton.button-1:hover{
   transform: translate(-50%, -52%);
   box-shadow: 0px 10px 3px #7c0101; 
 }
 
-.secondbutton.button-2,
-.secondbutton.button-3,
-.secondbutton.button-4,
-.secondbutton.button-5,
-.secondbutton.button-6 {
-  background-color: #ccc;
-  cursor: not-allowed;
-  color: #666; 
+.progress-container .progress-circle {
+  display: block; 
 }
 
 .secondbutton.button-2,
@@ -540,6 +564,7 @@
   left: 480px;
 }
 
+.secondbutton.button-1,
 .secondbutton.button-3,
 .secondbutton.button-5 {
   top: 215px;
@@ -610,7 +635,7 @@
 .starsb.starsb-3,
 .starsb.starsb-5 {
   margin-left: 60px;
-  margin-top: 60px;
+  margin-top: 85px;
   position: relative;
 }
 
@@ -627,7 +652,7 @@
 .starsb.starsb-4,
 .starsb.starsb-2 {
   position: relative;
-  margin-top: 60px;
+  margin-top: 85px;
   left: 350px;
 }
 
@@ -724,7 +749,7 @@
 
 
 /* Media query for screens less than 1366px wide */
-/* @media (max-width: 1500px) {
+@media (max-width: 1366px) {
   .sidebar {
     width: 250px;
     transition: width 0.3s ease; 
@@ -740,7 +765,7 @@
     transition: margin-left 0.3s ease; 
   }
 
-  .procedure {
+  /* .procedure {
     width: 250px;
     height: 350px;
     transition: width 0.3s ease, height 0.3s ease;
@@ -807,5 +832,5 @@
     padding: 8px 16px;
     width: 150px;
     transition: font-size 0.3s ease, padding 0.3s ease, width 0.3s ease; 
-  }
-} */
+  } */
+}

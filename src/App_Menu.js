@@ -5,6 +5,7 @@ import preFlightProcedureImage from './images/Pre-Flight-Procedure.png';
 import CFIImage from './images/CFI.png';
 import placeholderImage from './images/placeholder.png';
 import square from './images/square.png';
+import procedureTrainer from './images/Procedure-Trainer.png';
 import './App.css';
 
 // ProceduralTrainer Component
@@ -18,9 +19,10 @@ export const ProceduralTrainer = ({ handleProcedureSelect }) => {
     { id: 1, title: "Emergency\n Procedures", progress: 50, image: emergencyProcedureImage, isStarred: false },
     { id: 2, title: "Pre-Flight\n Procedures", progress: 0, image: preFlightProcedureImage, isStarred: false },
     { id: 3, title: "CFI", progress: 25, image: CFIImage, isStarred: false },
-    ...Array.from({ length: 17 }, (_, i) => ({
-      id: i + 4,
-      title: `Procedure ${i + 4}`,
+    { id: 4, title: "Scenario \n Trainer", progress: 0, image: procedureTrainer, isStarred: false },
+    ...Array.from({ length: 8 }, (_, i) => ({
+      id: i + 5,
+      title: `Coming \n Soon ${i + 5}`,
       progress: 0,
       image: placeholderImage, isStarred: false
     }))
@@ -47,6 +49,9 @@ export const ProceduralTrainer = ({ handleProcedureSelect }) => {
       case 3:
         handleProcedureSelect('CFI');
         break;
+      case 4:
+        handleProcedureSelect('ProcedureTrainerSection');
+        break;
       default:
         console.log('Procedure not found');
         break;
@@ -54,15 +59,6 @@ export const ProceduralTrainer = ({ handleProcedureSelect }) => {
   };
 
   const [recentProcedures] = useState([
-    { title: "Engine Out", stars: 1, image: square },
-    { title: "Engine Out", stars: 2, image: square },
-    { title: "Engine Out", stars: 3, image: square },
-    { title: "Engine Out", stars: 1, image: square },
-    { title: "Engine Out", stars: 2, image: square },
-    { title: "Engine Out", stars: 3, image: square },
-    { title: "Engine Out", stars: 1, image: square },
-    { title: "Engine Out", stars: 2, image: square },
-    { title: "Engine Out", stars: 3, image: square },
     { title: "Engine Out", stars: 1, image: square },
     { title: "Engine Out", stars: 2, image: square },
     { title: "Engine Out", stars: 3, image: square },
@@ -126,12 +122,15 @@ export const ProceduralTrainer = ({ handleProcedureSelect }) => {
 
 // EmergencyProcedure Component
 
+
+
 export const EmergencyProcedure = () => {
   const [activeProcedure, setActiveProcedure] = useState({
     id: 1,
     title: "Engine Out\nin flight",
     stars: 3,
     completed: true,
+    percentage: 50,
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu posuere mi,
               ac ultrices elit. Suspendisse eu neque nec orci pellentesque accumsan.
               • Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -146,23 +145,67 @@ export const EmergencyProcedure = () => {
   });
 
   const procedures = [
-    { id: 1, title: "Engine Out\nin flight", stars: 3, completed: true },
-    { id: 2, title: "Engine Fire\nIn Flight", stars: 0, completed: false },
-    { id: 3, title: "Electrical Fire\nIn Flight", stars: 0, completed: false },
-    { id: 4, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 5, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 6, title: "Procedure\nPlaceholder", stars: 0, completed: false }
+    {
+      id: 1,
+      title: "Engine Out\nin flight",
+      stars: 3,
+      completed: true,
+      percentage: 50,
+      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu posuere mi,
+                ac ultrices elit. Suspendisse eu neque nec orci pellentesque accumsan.
+                • Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                • Aliquam tincidunt mauris eu risus.
+                • Vestibulum auctor dapibus neque.
+                • Nunc dignissim risus id metus.
+                Ut euismod eu velit imperdiet fermentum. Fusce laoreet mi vitae ante posuere
+                ullamcorper. Cras vel orci quam. Duis viverra libero quis magna finibus euismod.
+                Suspendisse potenti. Pellentesque sit amet tempor orci. Praesent elementum lacus
+                et sapien porttitor, et tincidunt turpis egestas. Curabitur congue tincidunt velit,
+                quis rhoncus turpis dapibus at.`
+    },
+    {
+      id: 2,
+      title: "Engine Fire\nIn Flight",
+      stars: 3,
+      completed: true,
+      percentage: 0,
+      content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu posuere mi,
+                ac ultrices elit. Suspendisse eu neque nec orci pellentesque accumsan.
+                • Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                • Aliquam tincidunt mauris eu risus.
+                • Vestibulum auctor dapibus neque.
+                • Nunc dignissim risus id metus.
+                Ut euismod eu velit imperdiet fermentum. Fusce laoreet mi vitae ante posuere
+                ullamcorper. Cras vel orci quam. Duis viverra libero quis magna finibus euismod.
+                Suspendisse potenti. Pellentesque sit amet tempor orci. Praesent elementum lacus
+                et sapien porttitor, et tincidunt turpis egestas. Curabitur congue tincidunt velit,
+                quis rhoncus turpis dapibus at.`
+    },
+    { id: 3, title: "Electrical Fire\nIn Flight", stars: 0, completed: false, percentage: 0 },
+    { id: 4, title: "Coming \n Soon", stars: 0, completed: false, percentage: 0 },
+    { id: 5, title: "Coming \n Soon", stars: 0, completed: false, percentage: 0 },
+    { id: 6, title: "Coming \n Soon", stars: 0, completed: false, percentage: 0 }
   ];
 
-  const handleClick = (activeProcedure) => {
-    if (activeProcedure.completed) {
-      setActiveProcedure(activeProcedure);
+  const handleClick = (procedure) => {
+    if (procedure.completed) {
+      setActiveProcedure(procedure);
     }
+  };
+
+  const isNextProcedureLocked = (index) => {
+    if (index === 0) return false; // Skip locking the first procedure
+    return procedures[index - 1].percentage <= 49;
+  };
+
+  const isNextProcedureHighlighted = (index) => {
+    if (index === 0) return false; // Skip highlighting the first procedure
+    return procedures[index - 1].percentage > 49;
   };
 
   return (
     <div className="secondcontainer">
-      {procedures.map((procedure) => (
+      {procedures.map((procedure, index) => (
         <div key={procedure.id} className="secondwrapper">
           <div className="progress-container">
             {procedure.id === 1 && (
@@ -199,68 +242,107 @@ export const EmergencyProcedure = () => {
                     strokeDasharray="30,30" // Dashed pattern
                   />
                 </svg>
-                </>
-                )}
-                {procedure.id === 3 && (
-                  <svg className="dashed-line" width="500" height="500">
-                    <path
-                      d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 3
-                      stroke="#cccccc" // Line color
-                      strokeWidth="7" // Line width
-                      fill="none" // No fill for the path
-                      strokeDasharray="30,30" // Dashed pattern
+              </>
+            )}
+            {procedure.id === 3 && (
+              <svg className="dashed-line" width="500" height="500">
+                <path
+                  d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 3
+                  stroke="#cccccc" // Line color
+                  strokeWidth="7" // Line width
+                  fill="none" // No fill for the path
+                  strokeDasharray="30,30" // Dashed pattern
+                />
+              </svg>
+            )}
+            {procedure.id === 5 && (
+              <svg className="dashed-line" width="500" height="500">
+                <path
+                  d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 5
+                  stroke="#cccccc" // Line color
+                  strokeWidth="7" // Line width
+                  fill="none" // No fill for the path
+                  strokeDasharray="30,30" // Dashed pattern
+                />
+              </svg>
+            )}
+            {procedure.id === 2 && (
+              <>
+                {!isNextProcedureLocked(index) && (
+                  <svg className="progress1-circle1" width="220" height="220">
+                    <circle
+                      cx="110"
+                      cy="110"
+                      r="100"
+                      stroke="#e6e6e6"
+                      strokeWidth="10"
+                      fill="none"
+                    />
+                    <circle
+                      cx="110"
+                      cy="110"
+                      r="100"
+                      stroke="#ff0042"
+                      strokeWidth="10"
+                      strokeDasharray="628.32"
+                      strokeDashoffset="471.24" /* 628.32 * 0.75 (75% remaining, 25% progress) */
+                      strokeLinecap="round"
+                      fill="none"
+                      transform="rotate(-90 110 110)"
                     />
                   </svg>
                 )}
-                {procedure.id === 5 && (
-                  <svg className="dashed-line" width="500" height="500">
-                    <path
-                      d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 5
-                      stroke="#cccccc" // Line color
-                      strokeWidth="7" // Line width
-                      fill="none" // No fill for the path
-                      strokeDasharray="30,30" // Dashed pattern
-                    />
-                  </svg>
-                )}
-                {procedure.id === 2 && (
-                  <svg className="dashed-line" width="500" height="500">
-                    <path
-                      d="M 20 440 C 25 220, 20 70, 340 25"
-                      stroke="#cccccc" // Different line color
-                      strokeWidth="7" // Line width
-                      fill="none" // No fill for the path
-                      strokeDasharray="30,30" // Dashed pattern
-                    />
-                  </svg>
-                )}
-                {procedure.id === 4 && (
-                  <svg className="dashed-line" width="500" height="500">
-                    <path
-                      d="M 20 440 C 25 220, 20 70, 340 25"
-                      stroke="#cccccc" // Different line color
-                      strokeWidth="7" // Line width
-                      fill="none" // No fill for the path
-                      strokeDasharray="30,30" // Dashed pattern
-                    />
-                  </svg>
-                )}
+                <svg className="dashed-line" width="500" height="500">
+                  <path
+                    d="M 20 440 C 25 220, 20 70, 340 25"
+                    stroke="#cccccc"
+                    strokeWidth="7"
+                    fill="none"
+                    strokeDasharray="30,30"
+                  />
+                </svg>
+              </>
+            )}
+            {procedure.id === 4 && (
+              <svg className="dashed-line" width="500" height="500">
+                <path
+                  d="M 20 440 C 25 220, 20 70, 340 25"
+                  stroke="#cccccc"
+                  strokeWidth="7"
+                  fill="none"
+                  strokeDasharray="30,30"
+                />
+              </svg>
+            )}
             <button
-              className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
-              onClick={() => handleClick(activeProcedure)}
-              disabled={!procedure.completed}
+              className={`secondbutton button-${procedure.id} ${!procedure.completed || isNextProcedureLocked(index) ? 'locked' : ''} ${isNextProcedureHighlighted(index) ? 'highlighted' : ''}`}
+              onClick={() => handleClick(procedure)}
+              disabled={!procedure.completed || isNextProcedureLocked(index)}
             >
-              {!procedure.completed ? <FaLock className="lock-icon" /> : null}
+              {(!procedure.completed || isNextProcedureLocked(index)) ? <FaLock className="lock-icon" /> : null}
             </button>
           </div>
           <div className={`starsb starsb-${procedure.id}`}>
             {Array.from({ length: 3 }).map((_, i) => (
-              <FaStar key={i} className={`starb ${procedure.id === 1 ? (i < 2 ? 'filledb' : 'unfilledb') : 'unfilledb'}`} />
+              <FaStar
+                key={i}
+                className={`starb ${
+                  procedure.id === 1
+                    ? i < 2
+                      ? 'filledb'
+                      : 'unfilledb'
+                    : procedure.id === 2 && !isNextProcedureLocked(index) && i < 1
+                    ? 'filledb'
+                    : 'unfilledb'
+                }`}
+              />
             ))}
           </div>
           <div className={`title title-${procedure.id}`}>
             {procedure.title.split('\n').map((line, index) => (
-              <div key={index} className={`title-line ${index === 0 ? 'thick' : 'thin'}`}>{line}</div>
+              <div key={index} className={`title-line ${index === 0 ? 'thick' : 'thin'}`}>
+                {line}
+              </div>
             ))}
           </div>
         </div>
@@ -269,10 +351,21 @@ export const EmergencyProcedure = () => {
       <div className="modal">
         <div className="modal-content">
           <div className="starsb-and-percentageb">
-            <FaStar className="starb filledb" />
-            <FaStar className="starb filledb" />
-            <FaStar className="starb unfilledb" />
-            <span className="percentage">50%</span>
+            {Array.from({ length: 3 }).map((_, i) => (
+              <FaStar
+                key={i}
+                className={`starb ${
+                  activeProcedure.id === 1
+                    ? i < 2
+                      ? 'filledb'
+                      : 'unfilledb'
+                    : activeProcedure.id === 2 && i < 1
+                    ? 'filledb'
+                    : 'unfilledb'
+                }`}
+              />
+            ))}
+            <span className="percentage">{activeProcedure.percentage}%</span>
           </div>
           <h1>{activeProcedure.title}</h1>
           <p>{activeProcedure.content}</p>
@@ -282,13 +375,12 @@ export const EmergencyProcedure = () => {
     </div>
   );
 };
-
 // PreFlightProcedure Component
 
 export const PreFlightProcedure = () => {
   const [activeProcedure, setActiveProcedure] = useState({
     id: 1,
-    title: "Procedure\nPlaceholder",
+    title: "Coming \n Soon",
     stars: 3,
     completed: true,
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu posuere mi,
@@ -305,12 +397,12 @@ export const PreFlightProcedure = () => {
   });
 
   const procedures = [
-    { id: 1, title: "Procedure\nPlaceholder", stars: 0, completed: true },
-    { id: 2, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 3, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 4, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 5, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 6, title: "Procedure\nPlaceholder", stars: 0, completed: false }
+    { id: 1, title: "Coming \n Soon", stars: 0, completed: true },
+    { id: 2, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 3, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 4, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 5, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 6, title: "Coming \n Soon", stars: 0, completed: false }
   ];
 
   const handleClick = (activeProcedure) => {
@@ -447,7 +539,7 @@ export const PreFlightProcedure = () => {
 export const CFI = () => {
   const [activeProcedure, setActiveProcedure] = useState({
     id: 1,
-    title: "Procedure\nPlaceholder",
+    title: "Coming \n Soon",
     stars: 3,
     completed: true,
     content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu posuere mi,
@@ -464,12 +556,12 @@ export const CFI = () => {
   });
 
   const procedures = [
-    { id: 1, title: "Procedure\nPlaceholder", stars: 1, completed: true },
-    { id: 2, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 3, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 4, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 5, title: "Procedure\nPlaceholder", stars: 0, completed: false },
-    { id: 6, title: "Procedure\nPlaceholder", stars: 0, completed: false }
+    { id: 1, title: "Coming \n Soon", stars: 1, completed: true },
+    { id: 2, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 3, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 4, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 5, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 6, title: "Coming \n Soon", stars: 0, completed: false }
   ];
 
   const handleClick = (activeProcedure) => {
@@ -591,6 +683,165 @@ export const CFI = () => {
             <FaStar className="starb unfilledb" />
             <FaStar className="starb unfilledb" />
             <span className="percentage">25%</span>
+          </div>
+          <h1>{activeProcedure.title}</h1>
+          <p>{activeProcedure.content}</p>
+          <button className="start-button">Start</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ProcedureTrainerSection Component
+
+export const ProcedureTrainerSection = () => {
+  const [activeProcedure, setActiveProcedure] = useState({
+    id: 1,
+    title: "Coming \n Soon",
+    stars: 3,
+    completed: true,
+    content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu posuere mi,
+              ac ultrices elit. Suspendisse eu neque nec orci pellentesque accumsan.
+              • Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+              • Aliquam tincidunt mauris eu risus.
+              • Vestibulum auctor dapibus neque.
+              • Nunc dignissim risus id metus.
+              Ut euismod eu velit imperdiet fermentum. Fusce laoreet mi vitae ante posuere
+              ullamcorper. Cras vel orci quam. Duis viverra libero quis magna finibus euismod.
+              Suspendisse potenti. Pellentesque sit amet tempor orci. Praesent elementum lacus
+              et sapien porttitor, et tincidunt turpis egestas. Curabitur congue tincidunt velit,
+              quis rhoncus turpis dapibus at.`
+  });
+
+  const procedures = [
+    { id: 1, title: "Coming \n Soon", stars: 0, completed: true },
+    { id: 2, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 3, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 4, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 5, title: "Coming \n Soon", stars: 0, completed: false },
+    { id: 6, title: "Coming \n Soon", stars: 0, completed: false }
+  ];
+
+  const handleClick = (activeProcedure) => {
+    if (activeProcedure.completed) {
+      setActiveProcedure(activeProcedure);
+    }
+  };
+
+  return (
+    <div className="secondcontainer">
+      {procedures.map((procedure) => (
+        <div key={procedure.id} className="secondwrapper">
+          <div className="progress-container">
+            {procedure.id === 1 && (
+              <>
+                <div className="start-box">Start</div>
+                <svg className="progress-circle" width="220" height="220">
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    stroke="#e6e6e6"
+                    strokeWidth="10"
+                    fill="none"
+                  />
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    stroke="#e6e6e6"
+                    strokeWidth="10"
+                    strokeDasharray="628.32" /* 2 * Math.PI * 100 */
+                    strokeDashoffset="408.41" /* 628.32 * 0.65 (0% progress) */
+                    strokeLinecap="round"
+                    fill="none"
+                    transform="rotate(-90 110 110)"
+                  />
+                </svg>
+                <svg className="dashed-line" width="500" height="500">
+                  <path
+                    d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 1
+                    stroke="#cccccc" // Line color
+                    strokeWidth="7" // Line width
+                    fill="none" // No fill for the path
+                    strokeDasharray="30,30" // Dashed pattern
+                  />
+                </svg>
+                </>
+                )}
+                {procedure.id === 3 && (
+                  <svg className="dashed-line" width="500" height="500">
+                    <path
+                      d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 3
+                      stroke="#cccccc" // Line color
+                      strokeWidth="7" // Line width
+                      fill="none" // No fill for the path
+                      strokeDasharray="30,30" // Dashed pattern
+                    />
+                  </svg>
+                )}
+                {procedure.id === 5 && (
+                  <svg className="dashed-line" width="500" height="500">
+                    <path
+                      d="M 20 25 C 220 70, 350 130, 340 460" // Adjusted curve path for button 5
+                      stroke="#cccccc" // Line color
+                      strokeWidth="7" // Line width
+                      fill="none" // No fill for the path
+                      strokeDasharray="30,30" // Dashed pattern
+                    />
+                  </svg>
+                )}
+                {procedure.id === 2 && (
+                  <svg className="dashed-line" width="500" height="500">
+                    <path
+                      d="M 20 440 C 25 220, 20 70, 340 25"
+                      stroke="#cccccc" // Different line color
+                      strokeWidth="7" // Line width
+                      fill="none" // No fill for the path
+                      strokeDasharray="30,30" // Dashed pattern
+                    />
+                  </svg>
+                )}
+                {procedure.id === 4 && (
+                  <svg className="dashed-line" width="500" height="500">
+                    <path
+                      d="M 20 440 C 25 220, 20 70, 340 25"
+                      stroke="#cccccc" // Different line color
+                      strokeWidth="7" // Line width
+                      fill="none" // No fill for the path
+                      strokeDasharray="30,30" // Dashed pattern
+                    />
+                  </svg>
+                )}
+            <button
+              className={`secondbutton button-${procedure.id} ${!procedure.completed ? 'locked' : ''}`}
+              onClick={() => handleClick(activeProcedure)}
+              disabled={!procedure.completed}
+            >
+              {!procedure.completed ? <FaLock className="lock-icon" /> : null}
+            </button>
+          </div>
+          <div className={`starsb starsb-${procedure.id}`}>
+            <FaStar className="starb unfilledb" />
+            <FaStar className="starb unfilledb" />
+            <FaStar className="starb unfilledb" />
+          </div>
+          <div className={`title title-${procedure.id}`}>
+            {procedure.title.split('\n').map((line, index) => (
+              <div key={index} className={`title-line ${index === 0 ? 'thick' : 'thin'}`}>{line}</div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div className="modal">
+        <div className="modal-content">
+          <div className="starsb-and-percentageb">
+            <FaStar className="starb unfilledb" />
+            <FaStar className="starb unfilledb" />
+            <FaStar className="starb unfilledb" />
+            <span className="percentage">0%</span>
           </div>
           <h1>{activeProcedure.title}</h1>
           <p>{activeProcedure.content}</p>
