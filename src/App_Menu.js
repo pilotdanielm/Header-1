@@ -337,7 +337,7 @@ export const EmergencyProcedure = () => {
         </div>
       ))}
 
-{window.innerWidth <= 1366 ? (
+      {window.innerWidth <= 1366 ? (
         showModal && (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal">
