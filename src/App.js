@@ -73,7 +73,7 @@ const App = () => {
             <FaSignOutAlt className="logout-icon" /> Logout
           </button>
         </div>
-        <div className={`content ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+        <div className={`content ${sidebarOpen ? 'sidebar-open' : ''}`}>
           {renderSection()}
         </div>
       </div>
