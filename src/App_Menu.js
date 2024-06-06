@@ -187,7 +187,7 @@ export const EmergencyProcedure = () => {
   };
 
   const closeModal = (e) => {
-    if (e.target.classList.contains('modal-overlay')) {
+    if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('close-button')) {
       setShowModal(false);
     }
   };
@@ -341,6 +341,7 @@ export const EmergencyProcedure = () => {
         showModal && (
           <div className="modal-overlay" onClick={closeModal}>
             <div className="modal">
+              <button className="close-button" onClick={closeModal}>×</button>
               <div className="modal-content">
                 <div className="starsb-and-percentageb">
                 {Array.from({ length: 3 }).map((_, i) => (
@@ -396,6 +397,7 @@ export const EmergencyProcedure = () => {
     </div>
   );
 };
+
 
 // PreFlightProcedure Component
 
