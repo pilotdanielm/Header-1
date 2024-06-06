@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { ProceduralTrainer, EmergencyProcedure, PreFlightProcedure, CFI, ProcedureTrainerSection } from './App_Menu';
 import './App.css';
 import logoRed from './images/NAVI-Logo-red.png';
 import logoWhite from './images/NAVI-Logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState('trainer');
@@ -58,25 +56,25 @@ const App = () => {
         </header>
         <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="sidebar-content">
-            <button className="size"  onClick={() => handleProcedureSelect('account')}>
-              <FaUser className="icon-my-account" /> My Account
-              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
+            <button className="size" onClick={() => handleProcedureSelect('account')}>
+            <i class="fa-solid fa-user" /> My Account
+            <i class="fa-solid fa-chevron-right"></i>
             </button>
             <button className="size" onClick={() => handleProcedureSelect('Emergency Procedures')}>
-              Emergency Procedures
-              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
+            <i class="fa-solid fa-triangle-exclamation" /> Emergency Procedures
+            <i class="fa-solid fa-chevron-right"></i>
             </button>
             <button className="size" onClick={() => handleProcedureSelect('Scenarios')}>
-              Scenarios
-              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
+            <i class="fa-solid fa-plane-circle-exclamation"/>  Scenarios
+            <i class="fa-solid fa-chevron-right"></i>
             </button>
             <button className="size" onClick={() => handleProcedureSelect('CFI')}>
-              CFI
-              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
+            <i class="fa-solid fa-chalkboard-user" />  CFI
+            <i class="fa-solid fa-chevron-right"></i>
             </button>
           </div>
           <button className="logout-btn" onClick={() => handleProcedureSelect('signout')}>
-            <FaSignOutAlt className="logout-icon" /> Logout
+            <i class="fa-solid fa-right-from-bracket" />  Logout
           </button>
         </div>
         <div className={`content ${sidebarOpen ? 'sidebar-open' : ''}`}>

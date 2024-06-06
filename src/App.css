@@ -44,7 +44,7 @@
   margin-left: 10px;
 }
 
-.sidebar-arrow {
+.fa-chevron-right {
   color: transparent;
 }
 
@@ -131,7 +131,7 @@
   background-color: #ff0042; 
 }
 
-.logout-icon {
+.fa-right-from-bracket {
   color: #ff0042; 
   margin-right: 10px;
   border-radius: 50%;
@@ -1047,13 +1047,13 @@
     width: 90%; /* Adjust width as needed */
   }
 
-  .sidebar-arrow {
+  .fa-chevron-right {
     position: absolute;
-    right: 10px; /* Adjust position as needed */
+    right: 10px; 
     top: 50%; 
     transform: translateY(-50%);
     color: white;
-    font-size: 50px; /* Adjust size as needed */
+    font-size: 50px; 
   }
   
   .sidebar-content {
@@ -1068,8 +1068,9 @@
     font-size: 40px;
   }
 
-  .logout-icon{
+  .fa-right-from-bracket{
     font-size: 40px;
+    padding: 10px;
   }
 
   .sidebar:not(.open) {
@@ -1264,6 +1265,12 @@
     .secondcontainer{
       margin-top: 120px;
       margin-left: -50px;
+    }
+
+    .sidebar-content button::before, .logout-btn::before{
+      width: 100%;
+      margin-left: -25px;
+      border-radius: 30px;
     }
 
 }
