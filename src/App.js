@@ -5,6 +5,8 @@ import { ProceduralTrainer, EmergencyProcedure, PreFlightProcedure, CFI, Procedu
 import './App.css';
 import logoRed from './images/NAVI-Logo-red.png';
 import logoWhite from './images/NAVI-Logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
   const [currentSection, setCurrentSection] = useState('trainer');
@@ -56,17 +58,21 @@ const App = () => {
         </header>
         <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
           <div className="sidebar-content">
-            <button onClick={() => handleProcedureSelect('account')}>
+            <button className="size"  onClick={() => handleProcedureSelect('account')}>
               <FaUser className="icon-my-account" /> My Account
+              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
             </button>
-            <button onClick={() => handleProcedureSelect('Emergency Procedures')}>
+            <button className="size" onClick={() => handleProcedureSelect('Emergency Procedures')}>
               Emergency Procedures
+              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
             </button>
-            <button onClick={() => handleProcedureSelect('Scenarios')}>
+            <button className="size" onClick={() => handleProcedureSelect('Scenarios')}>
               Scenarios
+              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
             </button>
-            <button onClick={() => handleProcedureSelect('CFI')}>
+            <button className="size" onClick={() => handleProcedureSelect('CFI')}>
               CFI
+              <FontAwesomeIcon icon={faChevronRight} className="sidebar-arrow" />
             </button>
           </div>
           <button className="logout-btn" onClick={() => handleProcedureSelect('signout')}>

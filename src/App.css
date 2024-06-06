@@ -44,6 +44,10 @@
   margin-left: 10px;
 }
 
+.sidebar-arrow {
+  color: transparent;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -67,6 +71,8 @@
   padding-top: 20px;
   margin-top: 70px;
 }
+
+
 
 .sidebar-closed{
   width: 100%;
@@ -1011,54 +1017,82 @@
 }
 
 @media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-height: 1000px) 
-  and (-webkit-min-device-pixel-ratio: 3) {
+  and (min-device-width: 300px) 
+  and (max-device-width: 800px) 
+  and (max-device-height: 1000px) {
 
   .navbar{
     margin-left: -10px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .sidebar {
-    width: 420px;
-    transition: width 0.3s ease; 
+    width: 100%;
   }
 
   .sidebar-content button {
-    padding: 12px 24px;
-    font-size: 30px;
+    padding: 15px 24px;
+    width: 90%; /* Adjust width as needed */
+    padding: 15px 2px; /* Adjust vertical padding to bring borders closer to text */
+    border-bottom: 2px solid rgb(255, 255, 255, 0.748); /* Thin line below */
   }
-
-  .sidebar-content{
-    margin-top: 100px;
+  
+  .sidebar-content .size {
+    font-size: 55px !important;
   }
-
-  .logout-btn{
-    font-size: 100px;
+  
+  .logout-btn {
+    font-size: 40px !important;
     margin-bottom: 30px;
+    width: 90%; /* Adjust width as needed */
+  }
+
+  .sidebar-arrow {
+    position: absolute;
+    right: 10px; /* Adjust position as needed */
+    top: 50%; 
+    transform: translateY(-50%);
+    color: white;
+    font-size: 50px; /* Adjust size as needed */
+  }
+  
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text inside the items */
+    margin-top: 120px;
+  }
+
+  .icon-my-account{
+    font-size: 40px;
   }
 
   .logout-icon{
-    font-size: 35px;
+    font-size: 40px;
   }
 
   .sidebar:not(.open) {
-    left: -420px;
+    left: -100%;
     transition: left 0.3s ease; 
   }
 
   .toggle-btn{
-    font-size: 100px;
+    font-size: 140px;
   }
 
   .logo{
-    height: 70px;
+    height: 90px;
+    margin-top: 20px;
   }
 
   .content.sidebar-open {
-    margin-left: 200px;
-    transition: margin-left 0.3s ease; 
+    margin-left: 23px;
+  }
+
+  .content{
+    margin-top: 130px;
+    margin-left: 30px;
   }
 
     /* Procedure Content */
@@ -1227,4 +1261,12 @@
       font-size: 50px;
     }
 
+    .secondcontainer{
+      margin-top: 120px;
+      margin-left: -50px;
+    }
+
 }
+
+
+
